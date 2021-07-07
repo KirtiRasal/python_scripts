@@ -1,3 +1,3 @@
 # python_scripts
 
-These python scripts is for decision tree and logistic regression respectively.
+These python scripts are for decision tree and logistic regression respectively for Anti Money laundering detection.

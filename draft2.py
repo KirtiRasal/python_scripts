@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
 from sklearn import metrics
+import seaborn as sn
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
@@ -96,3 +97,14 @@ print(confusion_matrix)
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 plt.show()
 
+from sklearn.ensemble import RandomForestRegressor
+
+regressor = RandomForestRegressor(n_estimators=20, random_state=0)
+regressor.fit(X_train, y_train)
+y_pred = regressor.predict(X_test)
+
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+print(confusion_matrix(y_test,y_pred))
+print(classification_report(y_test,y_pred))
+print(accuracy_score(y_test, y_pred))

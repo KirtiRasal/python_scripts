@@ -97,3 +97,13 @@ print(confusion_matrix)
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 plt.show()
 
+import pickle
+ 
+# Save the trained model as a pickle string.
+saved_model = pickle.dumps(logistic_regression)
+ 
+# Load the pickled model
+logistic_regression_from_pickle = pickle.loads(saved_model)
+ 
+# Use the loaded pickled model to make predictions
+logistic_regression_from_pickle.predict(X_test)

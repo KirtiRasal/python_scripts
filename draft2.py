@@ -97,9 +97,6 @@ sn.heatmap(confusion_matrix, annot=True)
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 plt.show()
 
-df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/SAMPLE.csv")
-
-X_test_final = df1[:,df1.columns != 'isFraud']
 
 import pickle
  
@@ -109,6 +106,10 @@ saved_model = pickle.dumps(logistic_regression)
 # Load the pickled model
 logistic_regression_from_pickle = pickle.loads(saved_model)
  
+df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/SAMPLE.csv")
+
+X_test_final = df1[:,df1.columns != 'isFraud']
+
 # Use the loaded pickled model to make predictions
 logistic_regression_from_pickle.predict(X_test_final)
 

@@ -92,7 +92,7 @@ y_pred=logistic_regression.predict(X_test)
 
 confusion_matrix = pd.crosstab(y_test, y_pred, rownames=['Actual'], colnames=['Predicted'])
 print(confusion_matrix)
-#sn.heatmap(confusion_matrix, annot=True)
+sn.heatmap(confusion_matrix, annot=True)
 
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 plt.show()
@@ -107,3 +107,6 @@ logistic_regression_from_pickle = pickle.loads(saved_model)
  
 # Use the loaded pickled model to make predictions
 logistic_regression_from_pickle.predict(X_test)
+
+# #Exporting model results to csv -- example -- modify later accordingly
+# pd.DataFrame({"id": id_test, "relevance": results, "probs": predicted_probs }).to_csv('C:\Users\me\Desktop\python\data\submission.csv',index=False)

@@ -65,8 +65,8 @@ fraud_pct = 1.*fraud_cases/total_cases
 # Provide quick statistics
 print("Based on these rules, we have flagged %s (%s) fraud cases out of a total of %s cases." % (fraud_cases, fraud_pct, total_cases))
 
-#Export labelled data
-df.to_csv('LabelledData.csv')
+# #Export labelled data
+# df.to_csv('LabelledData.csv')
 
 # Create temporary view to review data
 df.createOrReplaceTempView("financials_labeled")

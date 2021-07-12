@@ -120,9 +120,9 @@ df1_scaled = pd.DataFrame(std_scaler.fit_transform(df1.loc[:,~df1.columns.isin([
 df1_scaled.columns = df1.columns[:-1]
 df1_scaled['isFraud'] = df1['isFraud']
 
-print(df1.dtypes)
-
-X_test_final = df_1scaled.loc[:, df1_scaled.columns != 'isFraud']
+X_test1 = df_1scaled.loc[:, df1_scaled.columns != 'isFraud']
+label_encoder = preprocessing.LabelEncoder()
+X_test_final = label_encoder.fit_transform(X_test1.values.ravel())
 
 # Use the loaded pickled model to make predictions
 logistic_regression_from_pickle.predict(X_test_final)

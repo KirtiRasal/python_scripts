@@ -97,6 +97,10 @@ sn.heatmap(confusion_matrix, annot=True)
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 plt.show()
 
+df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/SAMPLE.csv")
+
+X_test_final = df_scaled.loc[:, df_scaled.columns != 'isFraud']
+
 import pickle
  
 # Save the trained model as a pickle string.
@@ -106,7 +110,7 @@ saved_model = pickle.dumps(logistic_regression)
 logistic_regression_from_pickle = pickle.loads(saved_model)
  
 # Use the loaded pickled model to make predictions
-logistic_regression_from_pickle.predict(X_test)
+logistic_regression_from_pickle.predict(X_test_final)
 
-# #Exporting model results to csv -- example -- modify later accordingly
-# pd.DataFrame({"id": id_test, "relevance": results, "probs": predicted_probs }).to_csv('C:\Users\me\Desktop\python\data\submission.csv',index=False)
+#Exporting model results to csv -- example -- modify later accordingly
+pd.DataFrame({"Type_code": Type_code, "Type": Type, "amount": amount, "nameOrig" : nameOrig , "oldbalanceOrg" : oldbalanceOrg , "nameDest" : nameDest, "oldbalanceDest" : oldbalanceDest, "newbalanceDest" : newbalanceDest, "Label": y_pred}).to_csv('C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/results.csv',index=False)

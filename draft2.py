@@ -106,13 +106,23 @@ saved_model = pickle.dumps(logistic_regression)
 # Load the pickled model
 logistic_regression_from_pickle = pickle.loads(saved_model)
  
-df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/SAMPLE.csv")
+df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/12_07_2021_SAMPLE.csv")
 
 df1['Type_code'] = df1['Type_code'].astype('object')
+df1['nameOrig'] = df1['nameOrig'].astype('object')
+
+#Creating dummy variables through one hot encoding for 'type' column
+df1 = pd.get_dummies(df1, columns=['Type'], prefix=['Type'])
+
+# Normalization of the dataset
+std_scaler = StandardScaler()
+df1_scaled = pd.DataFrame(std_scaler.fit_transform(df1.loc[:,~df1.columns.isin(['isFraud'])]))
+df1_scaled.columns = df1.columns[:-1]
+df1_scaled['isFraud'] = df1['isFraud']
 
 print(df1.dtypes)
 
-X_test_final = df1.loc[:,df1.columns != 'isFraud']
+X_test_final = df_1scaled.loc[:, df1_scaled.columns != 'isFraud']
 
 # Use the loaded pickled model to make predictions
 logistic_regression_from_pickle.predict(X_test_final)

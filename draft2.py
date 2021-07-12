@@ -12,7 +12,7 @@ import seaborn as sn
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
 
-df = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/SAMPLE.csv")
+df = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/12_07_2021_SAMPLE.csv")
 
 print(df)
 # print(df.dtypes)

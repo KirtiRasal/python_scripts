@@ -107,7 +107,7 @@ saved_model = pickle.dumps(logistic_regression)
 logistic_regression_from_pickle = pickle.loads(saved_model)
  
 df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/SAMPLE.csv")
-
+print(df1.dtypes)
 X_test_final = df1.loc[:,df1.columns != 'isFraud']
 
 # Use the loaded pickled model to make predictions

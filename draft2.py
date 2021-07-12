@@ -97,4 +97,3 @@ print(confusion_matrix)
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 plt.show()
 
-

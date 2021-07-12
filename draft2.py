@@ -99,7 +99,7 @@ plt.show()
 
 df1 = pd.read_csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/python_scripts/SAMPLE.csv")
 
-X_test_final = df_scaled.loc[:, df_scaled.columns != 'isFraud']
+X_test_final = df1[:,df1.columns != 'isFraud']
 
 import pickle
  

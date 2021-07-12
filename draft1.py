@@ -26,7 +26,7 @@ print("MLflow Version: %s" % mlflow.__version__)
 #df = spark.createDataFrame(["SAMPLE"])
 #df = spark.read.load("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/SAMPLE.csv", format="csv")
 
-df = spark.read.csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/SAMPLE1.csv", inferSchema=True, header=True)
+df = spark.read.csv("C:/Users/sneha/OneDrive/Desktop/Snehal/Masters_Study/Study-SEM2/CaseStudy_Pwc/12_07_2021_SAMPLE.csv", inferSchema=True, header=True)
 
 
 #print(df.head())
@@ -64,6 +64,9 @@ fraud_pct = 1.*fraud_cases/total_cases
 
 # Provide quick statistics
 print("Based on these rules, we have flagged %s (%s) fraud cases out of a total of %s cases." % (fraud_cases, fraud_pct, total_cases))
+
+#Export labelled data
+df.to_csv('LabelledData.csv')
 
 # Create temporary view to review data
 df.createOrReplaceTempView("financials_labeled")
